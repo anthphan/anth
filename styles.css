@@ -1,0 +1,228 @@
+/* custom props */
+:root {
+    --main-blue: #045196;
+
+    --blue-1: #ACD1E4;
+    --blue-2: #67A3C4;
+
+    --light-grey: #F0F1F5;
+    --dark-grey: #DBDFE4;
+}
+
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  body {
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #045196;
+    padding: .8em;
+    z-index: 99;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .logo a {
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  .logo a:hover, #tab a:hover {
+    color: var(--blue-1);
+  }
+
+  #tab {
+    position: absolute;
+    top: 7em;
+    left: 0;
+    padding: .8em .6em;
+    background-color: var(--main-blue);
+    border-radius: 0 .8em .8em 0;
+    z-index: 1;
+    font-weight: 700;
+    width: 100px;
+  }
+
+  .links a {
+    color: gray;
+    font-weight: 500;
+  }
+
+  .links {
+    margin: 1em 0;
+    color: var(--blue-2);
+  }
+
+  .links a:hover {
+    color: var(--main-blue);
+  }
+  
+
+  #about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: -webkit-fill-available;
+    max-width: -webkit-fill-available;
+    height: 100vh;
+    width: 100vw;
+    font-size: 24px;
+    padding: .6em;
+    text-align: center;
+  }
+  
+  h1 {
+    font-weight: 300;
+    font-size: 72px;
+    padding-bottom: .2em;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--dark-grey);
+    padding: 1em;
+    color: var(--main-blue);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .about-me p {
+    text-align: left;
+    font-size: 18px;
+    padding: 0 .4em;
+  }
+
+  img {
+    border-radius: 20px;
+    width: 70%;
+    height: 70%;
+    margin: 1em auto;
+    border: 8px solid var(--dark-grey);
+  }
+
+  .title {
+    color: var(--blue-2);
+  }
+
+  #tab {
+    text-align: center;
+  }
+
+  /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    img {
+        width: 60%;
+        height: 60%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    img {
+        width: 45%;
+        height: 45%;
+    }
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    img {
+        width: 40%;
+        height: 40%;
+    }
+
+    .about-me {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1em 2em;
+        gap: 1em;
+    }
+
+    .about-me p {
+        font-size: 1em;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .about-me {
+        padding: 2em 4em;
+        gap: 1em;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    img {
+        width: 35%;
+        height: 35%;
+    }
+
+    .about-me p {
+        font-size: 1.4em;
+    }
+}

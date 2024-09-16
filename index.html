@@ -4,45 +4,146 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anthony Phan</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="navbar">
         <div class="logo">
           <a href="index.html">A <span>/</span> P</a>
         </div>
+        <div class="menu-toggle" id="menu-toggle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <section id="tab">
-        <div>
-            <a href="about.html">who am i?</a>
+    <section id="home">
+      <div>
+        <h1>Anthony Phan</h1>
+        <p>
+          <span class="title">Software Engineer</span>
+          <br />
+          Passionate about building solutions and constantly learning new
+          technologies.
+        </p>
+        <div class="links">
+          <a href="">linkedin</a>
+          •
+          <a href="">resume</a>
+          •
+          <a href="">github</a>
         </div>
+        <div class="hero-btn">
+          <a href="about.html" class="about-btn">About Me</a>
+        </div>
+      </div>
     </section>
 
     <section id="about">
-        <div>      
-            <h1>Anthony Phan</h1>
-            <p>
-              <span class="title">Software Engineer</span>
-              <br>
-              Passionate about building solutions and constantly learning new technologies.
-            </p>
-            <div class="links">
-              <a href="">linkedin</a> 
-              •
-              <a href="">resume</a>
-              •
-              <a href="">github</a>
-            </div>
+      <div class="about-header">
+        <h1>About Me</h1>
+      </div>
+      <div class="about-body">
+        <div class="about-img">
+          <img src="./images/anthony.png" alt="Photo of Anthony" />
         </div>
+        <div class="about-text">
+          <p>
+            I'm Anthony, I've spent countless hours learning and refining my
+            skills in front-end and back-end web development. Initially drawn to
+            the field by a passion for creating beautiful and functional
+            websites, I dove headfirst into learning HTML, CSS, and JavaScript.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="project-header">
+        <h1>Projects</h1>
+      </div>
+
+      <div class="project">
+        <a href="" class="project-link img-right">
+          <div class="project-img">
+            <img src="./images/template-1.jpg" alt="" />
+          </div>
+        </a>
+        <div class="project-info project-left">
+          <div class="project-title">
+            <h2>Project 1</h2>
+          </div>
+          <div class="project-desc">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora,
+              sequi.
+            </p>
+          </div>
+          <a href="projects.html" class="view-btn">View Project</a>
+          <a href="projects.html" class="view-btn">Live App</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-info project-right">
+          <div class="project-title">
+            <h2>Project 2</h2>
+          </div>
+          <div class="project-desc">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora,
+              sequi.
+            </p>
+          </div>
+          <a href="projects.html" class="view-btn">View Project</a>
+          <a href="projects.html" class="view-btn">Live App</a>
+        </div>
+        <a href="" class="project-link img-left">
+          <div class="project-img">
+            <img src="./images/template-1.jpg" alt="" />
+          </div>
+        </a>
+      </div>
+
+      <div class="project">
+        <a href="" class="project-link img-right">
+          <div class="project-img">
+            <img src="./images/template-1.jpg" alt="" />
+          </div>
+        </a>
+        <div class="project-info project-left">
+          <div class="project-title">
+            <h2>Project 1</h2>
+          </div>
+          <div class="project-desc">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora,
+              sequi.
+            </p>
+          </div>
+          <a href="projects.html" class="view-btn">View Project</a>
+          <a href="projects.html" class="view-btn">Live App</a>
+        </div>
+      </div>
     </section>
 
     <footer>
       <p>&copy; 2024 - Anthony Phan</p>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>

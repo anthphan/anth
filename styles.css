@@ -1,235 +1,430 @@
-/* custom props */
+/* Custom properties */
 :root {
-    --main-blue: #045196;
+  --main-blue: #045196;
+  --dark-blue: #033b71;
+  --blue-1: #ACD1E4;
+  --blue-2: #67A3C4;
+  --light-grey: #F0F1F5;
+  --dark-grey: #DBDFE4;
 
-    --blue-1: #ACD1E4;
-    --blue-2: #67A3C4;
-
-    --light-grey: #F0F1F5;
-    --dark-grey: #DBDFE4;
-
-    /* CSS HEX */
-    --polynesian-blue: #045196ff;
-    --platinum: #dbdfe4ff;
-    --antiflash-white: #f0f1f5ff;
-    --columbia-blue: #acd1e4ff;
-    --air-superiority-blue: #67a3c4ff;
+  /* CSS HEX */
+  --polynesian-blue: #045196ff;
+  --platinum: #dbdfe4ff;
+  --antiflash-white: #f0f1f5ff;
+  --columbia-blue: #acd1e4ff;
+  --air-superiority-blue: #67a3c4ff;
 }
 
-
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
+/* Global Reset */
 *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  /*
-    2. Remove default margin
-  */
-  * {
-    margin: 0;
-  }
-  /*
-    Typographic tweaks!
-    3. Add accessible line-height
-    4. Improve text rendering
-  */
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  /*
-    5. Improve media defaults
-  */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  /*
-    6. Remove built-in form typography styles
-  */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  /*
-    7. Avoid text overflows
-  */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  /*
-    8. Create a root stacking context
-  */
-  #root, #__next {
-    isolation: isolate;
-  }
+  box-sizing: border-box;
+}
 
-  body {
-    font-family: "Rubik", sans-serif;
-    font-size: 16px;
-  }
+* {
+  margin: 0;
+}
 
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #045196;
-    padding: .8em;
-    z-index: 99;
-  }
+html, body {
+  overflow-x: hidden;
+}
 
-  nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+}
 
-  a {
-    text-decoration: none;
-    color: white;
-  }
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--main-blue);
+  padding: 0.8em;
+  z-index: 1000;
+}
 
-  .logo a {
-    font-weight: 700;
-    font-size: 32px;
-  }
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--main-blue);
+}
 
-  .logo a:hover, #tab a:hover {
-    color: var(--blue-1);
-  }
+/* Logo styling */
+.logo a {
+  font-weight: 700;
+  font-size: 32px;
+  color: white;
+  text-decoration: none;
+}
 
-  #tab {
-    position: absolute;
-    top: 7em;
-    left: 0;
-    padding: .8em .6em;
-    background-color: var(--main-blue);
-    border-radius: 0 .8em .8em 0;
-    z-index: 1;
-    font-weight: 700;
-    width: 100px;
-  }
+/* Menu toggle */
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  z-index: 1010; 
+  width: 30px;
+}
 
-  .links a {
-    color: gray;
-    font-weight: 500;
-  }
+.menu-toggle .bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
-  .links {
-    margin: 1em 0;
-    color: var(--blue-2);
-  }
+/* Active state of menu toggle */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-  .links a:hover {
-    color: var(--main-blue);
-  }
-  
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
 
-  #about {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-height: -webkit-fill-available;
-    max-width: -webkit-fill-available;
-    height: 100vh;
-    width: 100vw;
-    font-size: 24px;
-    padding: .6em;
-    text-align: center;
-  }
-  
-  h1 {
-    font-weight: 300;
-    font-size: 72px;
-    padding-bottom: .2em;
-  }
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-  footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--dark-grey);
-    padding: 1em;
-    color: var(--main-blue);
-    font-weight: 600;
-    text-align: center;
-  }
+/* Navigation Links */
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100vw; 
+  background-color: var(--dark-blue);
+  position: fixed;
+  top: 5.8em;
+  left: -150%;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  border-radius: 0 0 2em 0;
+}
 
-  .about-me p {
-    text-align: left;
-    font-size: 18px;
-    padding: 0 .4em;
-  }
+.nav-links.active {
+  left: 0;
+}
 
-  img {
-    border-radius: 20px;
-    width: 70%;
-    height: 70%;
-    margin: 1em auto;
-    border: 8px solid var(--dark-grey);
-  }
+.nav-links li {
+  margin: 15px 0;
+  text-align: center;
+}
 
-  .title {
-    color: var(--blue-2);
-  }
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: 600;
+  display: block;
+  padding: 15px;
+}
 
-  #tab {
-    text-align: center;
-  }
+.nav-links a.active {
+  color: var(--blue-1);
+}
 
-  /* Extra small devices (phones, 600px and down) */
+.nav-links a:hover, .logo a:hover {
+  color: var(--blue-2);
+}
+
+/* Footer */
+footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--dark-grey);
+  padding: 1em;
+  color: var(--main-blue);
+  font-weight: 600;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 72px;
+  padding-bottom: 0.2em;
+}
+
+/* Hero Section */
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  font-size: 1.2em;
+  padding: 0.6em;
+  text-align: center;
+}
+
+.hero-btn {
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+
+#about {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  font-size: 1.2em;
+  padding: 0.6em;
+  text-align: center;
+}
+
+.about-btn {
+  display: inline-block;
+  padding: 0.4em 1em;
+  background-color: var(--main-blue);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 0 0 0.8em 0;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.about-btn:hover, .view-btn:hover {
+  background-color: var(--dark-blue);
+  transform: scale(1.05);
+}
+
+/* Project Section */
+#projects {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-header {
+  text-align: center;
+  padding-top: 6em;
+  padding-bottom: 4em;
+}
+
+/* Project Container */
+.project {
+  display: flex;
+  position: relative; /* Establishes a positioning context */
+  margin-bottom: 6em;
+  width: 100%;
+}
+
+/* Project Image */
+.project-img {
+  position: relative;
+  border: 1em solid #033b71;
+  border-radius: 0 0 .8em 0;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Project Info */
+.project-info {
+  flex: 1.5;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  z-index: 10; 
+  align-self: center;
+  padding: .4em;
+}
+
+.project-left {
+  margin-left: 50%; 
+}
+
+.project-right {
+  margin-right: 50%; 
+}
+
+.img-left {
+  margin-left: 25%; 
+}
+
+.img-right {
+  margin-right: 25%; 
+}
+
+/* Project Title */
+.project-title h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+/* Project Description */
+.project-desc p {
+  font-size: 1em;
+  margin: 1em 0;
+}
+
+/* View Buttons */
+.view-btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: var(--main-blue);
+  color: white;
+  text-decoration: none;
+  font-size: .8em;
+  border-radius: 0 0 0.8em 0;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+}
+
+.view-btn:hover {
+  background-color: var(--dark-blue);
+}
+
+.project-link {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-link:hover {
+  transform: scale(0.95);
+}
+
+
+/* Global Image Styling */
+img {
+  width: 100%;
+  height: auto;
+}
+
+.about-img img {
+  border: 1em solid #033b71;
+  border-radius: 0 0 .8em 0;
+}
+
+/* Responsive Design */
 @media only screen and (max-width: 600px) {
-    img {
-        width: 60%;
-        height: 60%;
-    }
+
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    img {
-        width: 45%;
-        height: 45%;
-    }
-    
+  
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    img {
-        width: 40%;
-        height: 40%;
-    }
+  body {
+    font-size: 18px; /* Larger base font size for tablets and desktops */
+  }
 
-    .about-me {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1em 2em;
-        gap: 1em;
-    }
+  h1 {
+    font-size: 3.5em; /* Larger heading */
+  }
 
-    .about-me p {
-        font-size: 1em;
-    }
+  .nav-links a {
+    font-size: 1.5em; /* Adjust nav link font size */
+  }
+
+  .about-text p {
+    font-size: 1.2em; /* Larger text size */
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    top: auto;
+    left: auto;
+    transform: none;
+    border-radius: 0;
+  }
+
+  .nav-links li {
+    margin: 0 1.5em;
+  }
+
+  .nav-links a {
+    font-size: 1em;
+    padding: 0;
+  }
+
+  .about-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 1em 2em;
+    gap: 1em;
+  }
+  
+  .about-img {
+    flex: 0 0 40%; 
+  }
+  
+  .about-text {
+    flex: 0 0 60%;
+  }
+  
+  .about-img img {
+    width: 100%;
+    height: auto;
+  }
+  
+
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .about-me {
-        padding: 2em 4em;
-        gap: 1em;
-    }
+  .about-body {
+    padding: 2em 4em; /* Extra padding for larger screens */
+  }
+
+  .about-img {
+    flex: 0 0 30%; /* Keeping image at 30% for large screens */
+  }
+
+  .about-text {
+    flex: 0 0 70%;
+  }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-    img {
-        width: 35%;
-        height: 35%;
-    }
+  .about-body {
+    padding: 2em 6em; /* More padding for extra-large screens */
+  }
 
-    .about-me p {
-        font-size: 1.4em;
-    }
+  .about-img {
+    flex: 0 0 25%; /* Image takes up slightly less space on extra-large screens */
+  }
+
+  .about-text {
+    flex: 0 0 75%; /* Text takes up more space */
+  }
 }

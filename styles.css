@@ -151,7 +151,7 @@ footer {
   width: 100%;
   background-color: var(--dark-grey);
   padding: 1em;
-  color: var(--main-blue);
+  color: black;
   font-weight: 600;
   text-align: center;
 }
@@ -180,20 +180,47 @@ h1 {
   padding-bottom: 2em;
 }
 
+.links a {
+  margin-top: 1em;
+}
+
 #about {
   background-color: #f4f4f4;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   height: 100vh;
   width: 100vw;
   font-size: 1.2em;
   padding: 0.6em;
-  text-align: center;
 }
 
-.about-btn {
+.about-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1em;
+  gap: 2em;
+}
+
+.about-img {
+  display: flex;
+  justify-content: center;
+}
+
+.about-img img {
+  width: 100%;
+  height: auto;
+  border: 1em solid var(--dark-blue);
+  border-radius: 0 0 0.8em 0;
+  display: block;
+}
+
+.about-btn, .links a, .view-btn{
   display: inline-block;
   padding: 0.4em 1em;
   background-color: var(--main-blue);
@@ -207,7 +234,7 @@ h1 {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.about-btn:hover, .view-btn:hover {
+.about-btn:hover, .view-btn:hover, .links a:hover {
   background-color: var(--dark-blue);
   transform: scale(1.05);
 }
@@ -227,76 +254,38 @@ h1 {
 /* Project Container */
 .project {
   display: flex;
-  position: relative; /* Establishes a positioning context */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 6em;
-  width: 100%;
+}
+
+.project-info {
+  padding: 1em;
+  /* background-color: rgba(0, 0, 0, 0.6); */
+  background-color: var(--dark-grey);
+}
+
+.project-desc {
+  padding-bottom: .5em;
 }
 
 /* Project Image */
+
 .project-img {
-  position: relative;
   border: 1em solid #033b71;
   border-radius: 0 0 .8em 0;
+  overflow: hidden;
 }
 
 .project-img img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
-/* Project Info */
-.project-info {
-  flex: 1.5;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  z-index: 10; 
-  align-self: center;
-  padding: .4em;
-}
-
-.project-left {
-  margin-left: 50%; 
-}
-
-.project-right {
-  margin-right: 50%; 
-}
-
-.img-left {
-  margin-left: 25%; 
-}
-
-.img-right {
-  margin-right: 25%; 
-}
-
-/* Project Title */
-.project-title h2 {
-  margin: 0;
-  font-size: 1.5em;
-}
-
-/* Project Description */
-.project-desc p {
-  font-size: 1em;
-  margin: 1em 0;
-}
-
 /* View Buttons */
-.view-btn {
-  display: inline-block;
-  padding: 0.5em 1em;
-  background-color: var(--main-blue);
-  color: white;
-  text-decoration: none;
-  font-size: .8em;
-  border-radius: 0 0 0.8em 0;
-  margin-bottom: 0.5em;
-  margin-right: 0.5em;
-}
+
 
 .view-btn:hover {
   background-color: var(--dark-blue);
@@ -313,40 +302,33 @@ h1 {
 
 
 /* Global Image Styling */
-img {
-  width: 100%;
-  height: auto;
-}
+
 
 .about-img img {
   border: 1em solid #033b71;
   border-radius: 0 0 .8em 0;
+  width: 80%;
+  height: auto;
 }
 
-/* Responsive Design */
-@media only screen and (max-width: 600px) {
+/* Base Styles already set for mobile-first */
 
-}
-
-@media only screen and (min-width: 600px) {
-  
-}
-
+/* Tablet Breakpoint: 768px */
 @media only screen and (min-width: 768px) {
   body {
-    font-size: 18px; /* Larger base font size for tablets and desktops */
+    font-size: 18px;
   }
 
   h1 {
-    font-size: 3.5em; /* Larger heading */
+    font-size: 3.5em;
   }
 
   .nav-links a {
-    font-size: 1.5em; /* Adjust nav link font size */
+    font-size: 1.5em;
   }
 
   .about-text p {
-    font-size: 1.2em; /* Larger text size */
+    font-size: 1.2em;
   }
 
   .menu-toggle {
@@ -377,37 +359,57 @@ img {
   }
 
   .about-body {
-    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     text-align: left;
-    padding: 1em 2em;
-    gap: 1em;
+    padding: 2em;
+    gap: 2em;
   }
-  
+
   .about-img {
-    flex: 0 0 40%; 
+    flex: 0 0 40%;
   }
-  
+
   .about-text {
     flex: 0 0 60%;
   }
-  
+
   .about-img img {
     width: 100%;
     height: auto;
   }
-  
 
+  .project {
+    flex-direction: row;
+    gap: 2em;
+  }
+
+  .project-left {
+    position: relative;
+    bottom: 8px;
+    right: 16px;
+  }
+
+  .project-right {
+    position: relative;
+    bottom: 8px;
+    left: 16px;
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+  }
 }
 
+/* Desktop Breakpoint: 992px */
 @media only screen and (min-width: 992px) {
   .about-body {
-    padding: 2em 4em; /* Extra padding for larger screens */
+    padding: 2em 4em;
   }
 
   .about-img {
-    flex: 0 0 30%; /* Keeping image at 30% for large screens */
+    flex: 0 0 30%;
   }
 
   .about-text {
@@ -415,16 +417,13 @@ img {
   }
 }
 
+/* Large Desktop: 1200px */
 @media only screen and (min-width: 1200px) {
-  .about-body {
-    padding: 2em 6em; /* More padding for extra-large screens */
-  }
-
   .about-img {
-    flex: 0 0 25%; /* Image takes up slightly less space on extra-large screens */
+    flex: 0 0 40%;
   }
 
   .about-text {
-    flex: 0 0 75%; /* Text takes up more space */
+    flex: 0 0 60%;
   }
 }
